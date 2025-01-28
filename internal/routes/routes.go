@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/config"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/handlers"
+	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/models"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/pkg/logging"
 	"github.com/julienschmidt/httprouter"
 	"gorm.io/gorm"
@@ -32,7 +33,7 @@ func (h *handler) Router(router *httprouter.Router) {
 }
 
 func (h *handler) Home(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	var allNotes []AllNotes
+	var allNotes []models.AllNotes
 
 	if err := h.db.Find(&allNotes).Error; err != nil {
 		fmt.Println(err)
