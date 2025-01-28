@@ -5,18 +5,26 @@ import (
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/pkg/logging"
 	"github.com/julienschmidt/httprouter"
+	"log"
 	"net/http"
 	"time"
 )
 
 func main() {
+	db := routes.InitDB()
+	sqlDB, err := db.DB()
+	if err != nil {
+		log.Fatalf("Failed to get database handle: %v", err)
+	}
+	defer sqlDB.Close()
+
 	router := httprouter.New()
 
 	logger := logging.GetLogger()
 
 	cfg := config.GetConfig()
 
-	handler := routes.NewHandler(cfg, logger)
+	handler := routes.NewHandler(cfg, logger, db)
 	handler.Router(router)
 
 	start(router, cfg, logger)

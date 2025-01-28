@@ -8,6 +8,15 @@ import (
 
 type Config struct {
 	Port string `yaml:"port"`
+	DB   struct {
+		User     string `yaml:"user"`
+		Password string `yaml:"password"`
+		DBName   string `yaml:"dbname"`
+		Host     string `yaml:"host"`
+		Port     int64  `yaml:"port"`
+		SslMode  string `yaml:"sslMode"`
+		TimeZone string `yaml:"timeZone"`
+	}
 }
 
 // Глобальная переменная для хранения экземпляра конфигурации
