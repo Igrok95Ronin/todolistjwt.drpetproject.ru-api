@@ -1,15 +1,11 @@
 package routes
 
 import (
-	"encoding/json"
-	"fmt"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/config"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/handlers"
-	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/models"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/pkg/logging"
 	"github.com/julienschmidt/httprouter"
 	"gorm.io/gorm"
-	"net/http"
 )
 
 var _ handlers.Handler = &handler{}
@@ -30,19 +26,25 @@ func NewHandler(cfg *config.Config, logger *logging.Logger, db *gorm.DB) handler
 
 func (h *handler) Router(router *httprouter.Router) {
 	router.GET("/", h.Home)
-}
+	// Регистрация (создание нового пользователя)
+	// POST /register
+	router.POST("/register", h.Register)
 
-func (h *handler) Home(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	var allNotes []models.AllNotes
+	// Логин (получение access и refresh токенов)
+	// POST /login
+	//router.POST("/login", h.Login)
 
-	if err := h.db.Find(&allNotes).Error; err != nil {
-		fmt.Println(err)
-	}
+	// Обновление (refresh) токенов
+	// POST /refresh
+	//router.POST("/refresh", h.Refresh)
 
-	w.Header().Set("Content-Type", "application/json") // Сначала заголовки
-	w.WriteHeader(http.StatusOK)                       // Затем статус
-
-	if err := json.NewEncoder(w).Encode(&allNotes); err != nil {
-		fmt.Println(err)
-	}
+	// Защищённый маршрут, доступный только при наличии валидного access-токена
+	// GET /protected
+	//
+	// Оборачиваем ProtectedHandler в AuthMiddleware.
+	// Благодаря этому любой маршрут, который мы обернём AuthMiddleware,
+	// станет защищённым, и проверка access-токена будет выполняться автоматически.
+	//router.GET("/protected", AuthMiddleware(h.Protected))
+	//
+	//router.POST("/logout", h.Logout)
 }

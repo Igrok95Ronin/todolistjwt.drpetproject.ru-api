@@ -17,6 +17,10 @@ type Config struct {
 		SslMode  string `yaml:"sslMode"`
 		TimeZone string `yaml:"timeZone"`
 	}
+	Token struct {
+		Access  string `yaml:"access"`
+		Refresh string `yaml:"refresh"`
+	} `yaml:"token"`
 }
 
 // Глобальная переменная для хранения экземпляра конфигурации

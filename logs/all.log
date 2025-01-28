@@ -6,3 +6,22 @@
 [36mINFO[0m[2025-01-28T16:31:02+03:00]main.go:45 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-28T16:32:06+03:00]main.go:45 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-28T16:33:44+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T19:24:48+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T19:41:52+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T19:42:56+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T19:43:26+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T19:47:36+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T19:59:00+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T20:05:16+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-28T20:05:18+03:00]register.go:39 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Пользователь с таким username или email уже существует: ERROR: column "username" does not exist (SQLSTATE 42703) 
+[31mERRO[0m[2025-01-28T20:05:40+03:00]register.go:39 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Пользователь с таким username или email уже существует: ERROR: column "username" does not exist (SQLSTATE 42703) 
+[36mINFO[0m[2025-01-28T20:06:15+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-28T20:06:17+03:00]register.go:39 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Пользователь с таким username или email уже существует: record not found 
+[36mINFO[0m[2025-01-28T20:07:00+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-28T20:07:02+03:00]register.go:41 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Пользователь с таким username или email уже существует: record not found 
+[36mINFO[0m[2025-01-28T20:08:05+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-28T20:08:06+03:00]register.go:41 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Пользователь с таким username или email уже существует: record not found 
+[36mINFO[0m[2025-01-28T20:09:52+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-28T20:09:53+03:00]register.go:41 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Пользователь с таким username или email уже существует: record not found 
+[36mINFO[0m[2025-01-28T20:12:44+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T20:17:07+03:00]main.go:45 main.start() Server started :8081                         
