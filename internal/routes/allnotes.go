@@ -9,7 +9,12 @@ import (
 )
 
 func (h *handler) allNotes(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	userID := r.Context().Value("user_id").(int64)
+	userID, ok := r.Context().Value("user_id").(int64)
+	if !ok {
+		h.logger.Error("Не удалось получить user_id из контекста")
+		httperror.WriteJSONError(w, "Не удалось получить user_id из контекста", nil, http.StatusInternalServerError)
+		return
+	}
 
 	var allNotes []models.AllNotes
 

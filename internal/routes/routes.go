@@ -48,8 +48,9 @@ func (h *handler) Router(router *httprouter.Router) {
 	router.GET("/protected", AuthMiddleware(h.Protected))
 	// Выход из системы
 	router.POST("/logout", h.Logout)
-	router.GET("/", AuthMiddleware(h.allNotes)) // Получения всех записей
 
+	router.GET("/", AuthMiddleware(h.allNotes))        // Получения всех записей
+	router.POST("/addpost", AuthMiddleware(h.addPost)) // Добавить пост
 }
 
 // ProtectedHandler - обработчик примера защищённого маршрута.
