@@ -36,3 +36,10 @@
 [31mERRO[0m[2025-01-29T11:25:19+03:00]login.go:65 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Login() Ошибка при генерации access-токена: key is of invalid type 
 [36mINFO[0m[2025-01-29T11:26:05+03:00]main.go:45 main.start() Server started :8081                         
 [31mERRO[0m[2025-01-29T11:26:37+03:00]login.go:57 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Login() Неверный email или пароль: %!s(<nil>)        
+[36mINFO[0m[2025-01-29T11:39:33+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T11:41:57+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-29T11:42:07+03:00]refresh.go:20 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Refresh() Необходим refresh_token (cookie отсутствует): http: named cookie not present 
+[36mINFO[0m[2025-01-29T11:49:21+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T11:54:11+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T11:55:37+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T11:56:00+03:00]main.go:45 main.start() Server started :8081                         

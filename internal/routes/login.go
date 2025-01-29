@@ -2,6 +2,8 @@ package routes
 
 import (
 	"encoding/json"
+	"fmt"
+	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/config"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/models"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/pkg/httperror"
 	"github.com/golang-jwt/jwt/v4"
@@ -148,4 +150,26 @@ func GenerateRefreshToken(h *handler, userID int64) (string, error) {
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	return token.SignedString([]byte(h.cfg.Token.Refresh))
+}
+
+// ValidateAccessToken - парсит и валидирует access-токен. Возвращает claims, если успешно.
+func ValidateAccessToken(cfg *config.Config, accessToken string) (*models.MyClaims, error) {
+	keyFunc := func(token *jwt.Token) (interface{}, error) {
+		// Возвращаем секрет, которым подписан access-токен
+		return []byte(cfg.Token.Access), nil
+	}
+
+	// Парсим токен
+	parsedToken, err := jwt.ParseWithClaims(accessToken, &models.MyClaims{}, keyFunc)
+	if err != nil {
+		return nil, err
+	}
+
+	// Проверяем, что claims верного типа и токен валиден
+	claims, ok := parsedToken.Claims.(*models.MyClaims)
+	if !ok || !parsedToken.Valid {
+		return nil, fmt.Errorf("Невалидный токен")
+	}
+
+	return claims, nil
 }
