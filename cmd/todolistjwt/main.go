@@ -27,10 +27,12 @@ func main() {
 	handler := routes.NewHandler(cfg, logger, db)
 	handler.Router(router)
 
-	start(router, cfg, logger)
+	corsHandler := routes.CorsSettings().Handler(router)
+
+	start(corsHandler, cfg, logger)
 }
 
-func start(router *httprouter.Router, cfg *config.Config, logger *logging.Logger) {
+func start(router http.Handler, cfg *config.Config, logger *logging.Logger) {
 
 	const WRI = 15 * time.Second
 
