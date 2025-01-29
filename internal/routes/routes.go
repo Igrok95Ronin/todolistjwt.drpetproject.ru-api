@@ -49,13 +49,13 @@ func (h *handler) Router(router *httprouter.Router) {
 	// Выход из системы
 	router.POST("/logout", h.Logout)
 
-	router.GET("/", AuthMiddleware(h.allNotes))                                 // Получения всех записей
-	router.POST("/addpost", AuthMiddleware(h.addPost))                          // Добавить пост
-	router.PUT("/editentry/:id", AuthMiddleware(h.editEntry))                   // Редактировать запись
-	router.DELETE("/deleteentry/:id", AuthMiddleware(h.deleteEntry))            // Удалить запись
-	router.PUT("/markcompletedentry/:id", AuthMiddleware(h.markCompletedEntry)) // Отметить выполненную запись
-	router.DELETE("/deleteallentries", AuthMiddleware(h.DeleteAllEntries))      // Удалить все записи
-	//router.DELETE("/deleteallmarkedentries", h.DeleteAllMarkedEntries) // Удалить все отмеченные записи
+	router.GET("/", AuthMiddleware(h.allNotes))                                        // Получения всех записей
+	router.POST("/addpost", AuthMiddleware(h.addPost))                                 // Добавить пост
+	router.PUT("/editentry/:id", AuthMiddleware(h.editEntry))                          // Редактировать запись
+	router.DELETE("/deleteentry/:id", AuthMiddleware(h.deleteEntry))                   // Удалить запись
+	router.PUT("/markcompletedentry/:id", AuthMiddleware(h.markCompletedEntry))        // Отметить выполненную запись
+	router.DELETE("/deleteallentries", AuthMiddleware(h.DeleteAllEntries))             // Удалить все записи
+	router.DELETE("/deleteallmarkedentries", AuthMiddleware(h.DeleteAllMarkedEntries)) // Удалить все отмеченные записи
 }
 
 // ProtectedHandler - обработчик примера защищённого маршрута.

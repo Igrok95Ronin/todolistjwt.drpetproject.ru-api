@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-// Удалить все записи
-func (h *handler) DeleteAllEntries(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+// Удалить все отмеченные записи
+func (h *handler) DeleteAllMarkedEntries(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	userID, ok := r.Context().Value("user_id").(int64)
 	if !ok {
 		h.logger.Error("Не удалось получить user_id из контекста")
@@ -16,8 +16,8 @@ func (h *handler) DeleteAllEntries(w http.ResponseWriter, r *http.Request, ps ht
 		return
 	}
 
-	if err := h.db.Unscoped().Where("user_id = ?", userID).Delete(&models.AllNotes{}).Error; err != nil {
-		h.logger.Errorf("Ошибка при удалении всех записей: %s", err)
+	if err := h.db.Unscoped().Where("completed = ? AND user_id = ?", true, userID).Delete(&models.AllNotes{}).Error; err != nil {
+		h.logger.Errorf("Ошибка при удалении всех отмеченных записей: %s", err)
 		return
 	}
 
