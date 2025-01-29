@@ -35,8 +35,8 @@ func (h *handler) Router(router *httprouter.Router) {
 	router.POST("/login", h.Login)
 
 	// Обновление (refresh) токенов
-	// POST /refresh
-	//router.POST("/refresh", h.Refresh)
+	//POST /refresh
+	router.POST("/refresh", h.Refresh)
 
 	// Защищённый маршрут, доступный только при наличии валидного access-токена
 	// GET /protected
