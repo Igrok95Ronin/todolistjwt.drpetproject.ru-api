@@ -27,7 +27,6 @@ func NewHandler(cfg *config.Config, logger *logging.Logger, db *gorm.DB) handler
 }
 
 func (h *handler) Router(router *httprouter.Router) {
-	router.GET("/", AuthMiddleware(h.Home))
 	// Регистрация (создание нового пользователя)
 	// POST /register
 	router.POST("/register", h.Register)
@@ -47,8 +46,10 @@ func (h *handler) Router(router *httprouter.Router) {
 	// Благодаря этому любой маршрут, который мы обернём AuthMiddleware,
 	// станет защищённым, и проверка access-токена будет выполняться автоматически.
 	router.GET("/protected", AuthMiddleware(h.Protected))
-	//
+	// Выход из системы
 	router.POST("/logout", h.Logout)
+	router.GET("/", AuthMiddleware(h.allNotes)) // Получения всех записей
+
 }
 
 // ProtectedHandler - обработчик примера защищённого маршрута.

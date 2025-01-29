@@ -44,3 +44,8 @@
 [36mINFO[0m[2025-01-29T11:55:37+03:00]main.go:45 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-29T11:56:00+03:00]main.go:45 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-29T11:56:10+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T13:49:42+03:00]main.go:47 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T16:09:36+03:00]main.go:47 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T16:10:28+03:00]main.go:47 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T16:17:00+03:00]main.go:47 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T16:17:26+03:00]main.go:47 main.start() Server started :8081                         
