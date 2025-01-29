@@ -41,7 +41,7 @@ func (h *handler) Register(w http.ResponseWriter, r *http.Request, _ httprouter.
 	password = template.HTMLEscapeString(password)
 
 	// Проверка валидности email
-	if err := validateEmail(email); err != nil {
+	if err := ValidateEmail(email); err != nil {
 		httperror.WriteJSONError(w, err.Error(), nil, http.StatusBadRequest)
 		h.logger.Errorf("Неверный формат email: %s", email)
 		return
@@ -94,7 +94,7 @@ func HashPassword(password string) (string, error) {
 	return string(bytes), err
 }
 
-func validateEmail(email string) error {
+func ValidateEmail(email string) error {
 	// Проверка длины email
 	if len(email) < 4 {
 		return fmt.Errorf("email должен быть не менее 4 символов")

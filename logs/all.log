@@ -25,3 +25,12 @@
 [31mERRO[0m[2025-01-28T20:09:53+03:00]register.go:41 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Пользователь с таким username или email уже существует: record not found 
 [36mINFO[0m[2025-01-28T20:12:44+03:00]main.go:45 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-28T20:17:07+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-28T20:27:07+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-28T20:27:16+03:00]register.go:46 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Неверный формат email: testmail.ru           
+[31mERRO[0m[2025-01-28T20:27:28+03:00]register.go:46 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Неверный формат email: @testmail.ru          
+[31mERRO[0m[2025-01-28T20:27:36+03:00]register.go:55 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Пользователь с таким username или email уже существует: %!s(<nil>) 
+[36mINFO[0m[2025-01-29T11:08:06+03:00]main.go:45 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-29T11:23:24+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-29T11:24:25+03:00]login.go:33 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Login() Все поля (username, email, password) обязательны: %!s(<nil>) 
+[36mINFO[0m[2025-01-29T11:25:16+03:00]main.go:45 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-29T11:25:19+03:00]login.go:65 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Login() Ошибка при генерации access-токена: key is of invalid type 

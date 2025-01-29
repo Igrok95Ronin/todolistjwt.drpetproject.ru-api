@@ -27,6 +27,6 @@ type Users struct {
 // MyClaims - своя структура для claim'ов JWT, включающая стандартные поля jwt.RegisteredClaims
 // и ID пользователя (UserID), чтобы знать, кому принадлежит токен.
 type MyClaims struct {
-	UserID uint `json:"user_id"`
+	UserID int64 `json:"user_id"`
 	jwt.RegisteredClaims
 }

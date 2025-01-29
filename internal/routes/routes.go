@@ -32,7 +32,7 @@ func (h *handler) Router(router *httprouter.Router) {
 
 	// Логин (получение access и refresh токенов)
 	// POST /login
-	//router.POST("/login", h.Login)
+	router.POST("/login", h.Login)
 
 	// Обновление (refresh) токенов
 	// POST /refresh
