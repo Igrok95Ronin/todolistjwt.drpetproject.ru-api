@@ -53,3 +53,4 @@
 [36mINFO[0m[2025-01-29T16:31:22+03:00]main.go:47 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-29T16:32:18+03:00]main.go:47 main.start() Server started :8081                         
 [31mERRO[0m[2025-01-29T16:33:24+03:00]addpost.go:22 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).addPost() Не удалось получить user_id из контекста     
+[36mINFO[0m[2025-01-29T16:33:49+03:00]main.go:47 main.start() Server started :8081                         
