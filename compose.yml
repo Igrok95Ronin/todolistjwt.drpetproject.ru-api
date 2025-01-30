@@ -15,15 +15,25 @@ services:
     networks:
       - drpetproject-network
 
-#  apiToDoListJWT:
-#    image: todolistjwtdrpetprojectapi:v.1.0
-#    container_name: todolistjwt
-#    ports:
-#      - 8081:8081
-#    networks:
-#      drpetproject-network:
-#    depends_on:
-#      - dbToDolistJWT
+  apiToDoListJWT:
+    image: todolistjwtdrpetprojectapi:dev.v.1.0
+    container_name: todolistapijwt
+    ports:
+      - 8081:8081
+    networks:
+      drpetproject-network:
+    depends_on:
+      - dbToDolistJWT
+
+  webTodoListJWT:
+    image: todolistjwtdrpetprojectweb:dev.v.1.0
+    container_name: todolistjwtweb
+    ports:
+      - 81:80
+    networks:
+      drpetproject-network:
+    depends_on:
+      - apiToDoListJWT
 
 volumes:
   pgdatatodolistjwt:

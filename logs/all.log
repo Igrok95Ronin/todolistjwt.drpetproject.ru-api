@@ -85,3 +85,9 @@
 [36mINFO[0m[2025-01-30T12:08:41+03:00]main.go:47 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-30T12:09:45+03:00]main.go:47 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-30T12:18:08+03:00]main.go:47 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-30T14:19:57+03:00]main.go:47 main.start() Server started :8081                         
+[31mERRO[0m[2025-01-30T14:20:03+03:00]refresh.go:21 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Refresh() Необходим refresh_token (cookie отсутствует): http: named cookie not present 
+[31mERRO[0m[2025-01-30T14:20:10+03:00]refresh.go:21 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Refresh() Необходим refresh_token (cookie отсутствует): http: named cookie not present 
+[31mERRO[0m[2025-01-30T14:20:23+03:00]login.go:60 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Login() Неверный email или пароль: %!s(<nil>)        
+[31mERRO[0m[2025-01-30T14:20:58+03:00]register.go:34 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Register() Все поля (username, email, password) обязательны: %!s(<nil>) 
+[31mERRO[0m[2025-01-30T14:21:06+03:00]refresh.go:21 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Refresh() Необходим refresh_token (cookie отсутствует): http: named cookie not present 

@@ -16,7 +16,7 @@ func CorsSettings() *cors.Cors {
 			http.MethodPut,
 			http.MethodOptions, // Добавлен OPTIONS для preflight-запросов
 		},
-		AllowedOrigins:   []string{"http://localhost:5173"},
+		AllowedOrigins:   []string{"http://localhost:5173", "http://localhost:81", "https://todolistjwt.drpetproject.ru"},
 		AllowCredentials: true, // Разрешаем отправку cookie (credentials)
 		AllowedHeaders: []string{
 			"X-Api-Password",
