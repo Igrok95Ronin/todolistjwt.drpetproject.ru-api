@@ -84,3 +84,4 @@
 [31mERRO[0m[2025-01-30T11:56:48+03:00]refresh.go:21 github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/routes.(*handler).Refresh() Необходим refresh_token (cookie отсутствует): http: named cookie not present 
 [36mINFO[0m[2025-01-30T12:08:41+03:00]main.go:47 main.start() Server started :8081                         
 [36mINFO[0m[2025-01-30T12:09:45+03:00]main.go:47 main.start() Server started :8081                         
+[36mINFO[0m[2025-01-30T12:18:08+03:00]main.go:47 main.start() Server started :8081                         

@@ -24,9 +24,9 @@ func (h *handler) Register(w http.ResponseWriter, r *http.Request, _ httprouter.
 		return
 	}
 
-	username := users.UserName
-	email := users.Email
-	password := users.PasswordHash
+	username := strings.TrimSpace(users.UserName)
+	email := strings.TrimSpace(users.Email)
+	password := strings.TrimSpace(users.PasswordHash)
 
 	// Проверка, что поля заполнены
 	if username == "" || email == "" || password == "" {

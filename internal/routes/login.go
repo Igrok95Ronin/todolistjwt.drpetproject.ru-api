@@ -11,6 +11,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	"html/template"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -25,8 +26,8 @@ func (h *handler) Login(w http.ResponseWriter, r *http.Request, _ httprouter.Par
 		return
 	}
 
-	email := users.Email
-	password := users.PasswordHash
+	email := strings.TrimSpace(users.Email)
+	password := strings.TrimSpace(users.PasswordHash)
 
 	// Проверка, что поля заполнены
 	if email == "" || password == "" {
