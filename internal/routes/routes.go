@@ -56,6 +56,7 @@ func (h *handler) Router(router *httprouter.Router) {
 	router.PUT("/markcompletedentry/:id", AuthMiddleware(h.markCompletedEntry))        // Отметить выполненную запись
 	router.DELETE("/deleteallentries", AuthMiddleware(h.DeleteAllEntries))             // Удалить все записи
 	router.DELETE("/deleteallmarkedentries", AuthMiddleware(h.DeleteAllMarkedEntries)) // Удалить все отмеченные записи
+	router.GET("/me", AuthMiddleware(h.me))                                            // Информация о пользователе
 }
 
 // ProtectedHandler - обработчик примера защищённого маршрута.

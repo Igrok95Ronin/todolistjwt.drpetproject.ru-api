@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/internal/models"
 	"github.com/Igrok95Ronin/todolistjwt.drpetproject.ru-api.git/pkg/httperror"
@@ -62,7 +63,8 @@ func (h *handler) Refresh(w http.ResponseWriter, r *http.Request, _ httprouter.P
 	// 6. Сохраняем новый refresh-токен в базе
 	users.RefreshToken = newRefreshToken
 	if err = h.db.Save(&users).Error; err != nil {
-		http.Error(w, "Ошибка при сохранении нового refresh-токена", http.StatusInternalServerError)
+		httperror.WriteJSONError(w, "Ошибка при сохранении нового refresh-токена", err, http.StatusInternalServerError)
+		h.logger.Errorf("Ошибка при сохранении нового refresh-токена: %s", err)
 		return
 	}
 
@@ -82,9 +84,14 @@ func (h *handler) Refresh(w http.ResponseWriter, r *http.Request, _ httprouter.P
 		Path:     "/",
 	})
 
-	// 8. Успешный ответ
+	// 8. Успешный ответ с информацией о токенах
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("Токены успешно обновлены"))
+	w.Header().Set("Content-Type", "application/json")
+	response := map[string]string{
+		"access_token":  newAccessToken,
+		"refresh_token": newRefreshToken,
+	}
+	json.NewEncoder(w).Encode(response)
 }
 
 // ValidateRefreshToken - парсит и валидирует refresh-токен. Возвращает claims, если успешно.
